@@ -9,7 +9,16 @@ import { WorkComponent } from './sections/work/work.component';
 import { EducationComponent } from './sections/education/education.component';
 import { BlogComponent } from './sections/blog/blog.component';
 import { ContactComponent } from './sections/contact/contact.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {WorkDetailComponent} from './sections/work/work-detail/work-detail.component';
 
+
+
+import {MatCardModule} from '@angular/material/card'; 
+import {MatTabsModule} from '@angular/material/tabs'; 
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatListModule} from '@angular/material/list';  
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,10 +28,20 @@ import { ContactComponent } from './sections/contact/contact.component';
     WorkComponent,
     EducationComponent,
     BlogComponent,
-    ContactComponent
+    ContactComponent,
+    WorkDetailComponent
+  ],
+  entryComponents: [
+    WorkDetailComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatIconModule,
+    MatDialogModule,
+    MatCardModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

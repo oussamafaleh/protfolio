@@ -1,0 +1,38 @@
+<mat-dialog-content class="mat-typography">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{data.name}}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>{{data.description}}</p>
+    </mat-card-content>
+    <div class="row">
+      <div class="col-lg-8">
+        <mat-tab-group>
+          <mat-tab *ngFor="let img of data.img">
+            <ng-template mat-tab-label class="label" >
+              <img [src]="img" alt="" class="catalog">
+            </ng-template>
+            <img mat-card-image [src]="img" class="tab-img"
+              alt="Photo of a Shiba Inu">
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="col-lg-4">
+        <mat-list>
+          <div mat-subheader>Technologies</div>
+          <mat-divider></mat-divider>
+          <mat-list-item *ngFor="let technology of data.technologies">
+            
+            <div><img class="logo" [src]="technology.logo" alt="Photo of a Shiba Inu"> {{technology.name}} </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+  </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <!-- <button mat-button mat-dialog-close>Cancel</button>>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button -->
+</mat-dialog-actions>

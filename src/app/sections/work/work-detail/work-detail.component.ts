@@ -9,7 +9,7 @@ import { Work } from 'src/app/data-model/interface/work';
 export class WorkDetailComponent implements OnInit {
 
   constructor( public dialogRef: MatDialogRef<WorkDetailComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Work[]) {}
+    @Inject(MAT_DIALOG_DATA) public data) {}
 
   onNoClick(): void {
     this.dialogRef.close();

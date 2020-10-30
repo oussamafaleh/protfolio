@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { WorkDetailComponent } from './work-detail/work-detail.component';
-import { Work } from 'src/app/data-model/interface/work';
+
+import { locale as english } from './i18n/en';
+import { locale as frensh } from './i18n/fr';
+import { FuseTranslationLoaderService } from 'src/app/services/translation-loader.service';
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
   styleUrls: ['./work.component.scss']
 })
 export class WorkComponent implements OnInit {
+  color : String = "#2c98f066"
   data = [
     {
     name : "Web development",
     projects: [
       {
         name: 'TAXIORA',
-        gardImg : "../../assets/doc/dev/taxiora/taxiora2.png",
+        gardImg : "../../assets/doc/dev/taxiora/taxiora6.png",
         img: [
           '../../../assets/doc/dev/taxiora/taxiora2.png',  
           '../../../assets/doc/dev/taxiora/taxiora4.png',  
@@ -154,7 +158,10 @@ export class WorkComponent implements OnInit {
     ]
   },
 ]
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private translationLoader: FuseTranslationLoaderService) {
+      this.translationLoader.loadTranslations(english, frensh);
+     }
 
   ngOnInit() {
   }

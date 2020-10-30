@@ -1,7 +1,7 @@
-
-	<div id="colorlib-page">
-		<div class="container-wrap">
-		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+<div id="colorlib-page">
+	<div class="container-wrap">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar"
+			aria-expanded="false" aria-controls="navbar"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
 			<div class="text-center">
 				<div class="author-img" style="background-image: url(../assets/images/ouss.jpg);"></div>
@@ -11,23 +11,41 @@
 			<nav id="colorlib-main-menu" role="navigation" class="navbar">
 				<div id="navbar" class="collapse">
 					<ul>
-						<li class="active"><a  data-nav-section="home">Home</a></li>
-						<li><a  data-nav-section="about">About</a></li>
-						<li><a  data-nav-section="experience">Experience</a></li>
-						<li><a  data-nav-section="work">Work</a></li>
+						<li class="active"><a data-nav-section="home">Home</a></li>
+						<li><a data-nav-section="about">About</a></li>
+						<li><a data-nav-section="experience">Experience</a></li>
+						<li><a (click)="scrollToElement(work)">Work</a></li>
 						<!--li><a  data-nav-section="skills">Skills</a></li>
 						<li><a  data-nav-section="blog">Blog</a></li>
 						<li><a  data-nav-section="services">Services</a></li-->
-						<li><a  data-nav-section="education">Education</a></li>
-						<li><a  data-nav-section="contact">Contact</a></li>
+						<li><a data-nav-section="education">Education</a></li>
+						<li><a data-nav-section="contact">Contact</a></li>
 					</ul>
 				</div>
 			</nav>
+			<div class="text-center">
+				<h1 id="colorlib-logo">Select Language</h1>
+				<div class="langs">
+					<img class="language" [src]="language.flag" *ngFor="let language of languages"
+						(click)="setLanguage(language)">
+				</div>
+			</div>
+			<!-- <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+				<mat-button-toggle value="bold" *ngFor="let language of languages" (click)="setLanguage(language)">
+					<img class="flag mr-8" [src]="'assets/icons/flags/'+language.flag+'.png'">
+				</mat-button-toggle>
+			  </mat-button-toggle-group> -->
+
 
 			<div class="colorlib-footer">
-				<p><small>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->  </small></p>
+				<p><small>&copy;
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;
+						<script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+						is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com"
+							target="_blank">Colorlib</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </small>
+				</p>
 				<ul>
 					<li><a href="#"><i class="icon-facebook2"></i></a></li>
 					<li><a href="#"><i class="icon-twitter2"></i></a></li>
@@ -40,19 +58,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 		<div id="colorlib-main">
 
-			<app-home></app-home>
-			<app-about></app-about>
-			<app-experience></app-experience>
-			<app-work></app-work>
-			<app-education></app-education>
+			<app-home #home></app-home>
+			<app-about #about></app-about>
+			<app-experience #experience></app-experience>
+			<section class="colorlib-work" data-section="work" id="work" #work><app-work></app-work></section>
+			<app-education #education></app-education>
 			<!--app-blog></app-blog-->
-			<app-contact data-section="contact"></app-contact>
+			<app-contact data-section="contact" #contact></app-contact>
 
 
-			
-		
+
+
 
 
 		</div><!-- end:colorlib-main -->
 	</div><!-- end:container-wrap -->
-	</div>
+</div>
